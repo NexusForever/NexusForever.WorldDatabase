@@ -157,6 +157,12 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 5);
 
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 11400);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23);
+
 -- --------------------------------------
 -- Ravenous Crewman - w3404 - D3 - male - normal - dws
 -- --------------------------------------
@@ -170,6 +176,16 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 5),
     (@GUID + 2, @EVENTID, 5),
     (@GUID + 3, @EVENTID, 5);
+
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 9500),
+    (@GUID + 2, 7, 9500),
+    (@GUID + 3, 7, 9500);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23),
+    (@GUID + 2, 10, 23),
+    (@GUID + 3, 10, 23);
 
 -- --------------------------------------
 -- Ravenous Crewman - w3404 - D3 - female - normal - dws
@@ -189,6 +205,20 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 4, @EVENTID, 5),
     (@GUID + 5, @EVENTID, 5);
 
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 9500),
+    (@GUID + 2, 7, 9500),
+    (@GUID + 3, 7, 9500),
+    (@GUID + 4, 7, 9500),
+    (@GUID + 5, 7, 9500);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23),
+    (@GUID + 2, 10, 23),
+    (@GUID + 3, 10, 23),
+    (@GUID + 4, 10, 23),
+    (@GUID + 5, 10, 23);
+
 -- --------------------------------------
 -- Ravenous Refugee - male - w3404 - horde - normal - dws
 -- --------------------------------------
@@ -206,6 +236,20 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 3, @EVENTID, 2),
     (@GUID + 4, @EVENTID, 5),
     (@GUID + 5, @EVENTID, 5);
+
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 7400),
+    (@GUID + 2, 7, 7400),
+    (@GUID + 3, 7, 7400),
+    (@GUID + 4, 7, 7400),
+    (@GUID + 5, 7, 7400);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23),
+    (@GUID + 2, 10, 23),
+    (@GUID + 3, 10, 23),
+    (@GUID + 4, 10, 23),
+    (@GUID + 5, 10, 23);
 
 -- --------------------------------------
 -- Ravenous Refugee - female - w3404 - horde - normal - dws
@@ -230,6 +274,26 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 6, @EVENTID, 2),
     (@GUID + 7, @EVENTID, 5),
     (@GUID + 8, @EVENTID, 5);
+
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 7400),
+    (@GUID + 2, 7, 7400),
+    (@GUID + 3, 7, 7400),
+    (@GUID + 4, 7, 7400),
+    (@GUID + 5, 7, 7400),
+    (@GUID + 6, 7, 7400),
+    (@GUID + 7, 7, 7400),
+    (@GUID + 8, 7, 7400);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23),
+    (@GUID + 2, 10, 23),
+    (@GUID + 3, 10, 23),
+    (@GUID + 4, 10, 23),
+    (@GUID + 5, 10, 23),
+    (@GUID + 6, 10, 23),
+    (@GUID + 7, 10, 23),
+    (@GUID + 8, 10, 23);
 
 -- --------------------------------------
 -- Containment Controls - Ravenous Mordesh Flavor - W3404 PE781 - KLW
@@ -260,6 +324,13 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 7);
+
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 28300),
+    (@GUID + 1, 41, 8700);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23);
 
 -- --------------------------------------
 -- Dead Refugee(corpse) - male - w3404 - Flavor - dws
@@ -473,9 +544,25 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 3, @EVENTID, 9),
     (@GUID + 4, @EVENTID, 9);
 
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 6600),
+    (@GUID + 1, 41, 2000),
+    (@GUID + 2, 7, 6600),
+    (@GUID + 2, 41, 2000),
+    (@GUID + 3, 7, 6600),
+    (@GUID + 3, 41, 2000),
+    (@GUID + 4, 7, 6600),
+    (@GUID + 4, 41, 2000);
+
 INSERT INTO `entity_spline` (`Id`, `SplineId`, `Mode`, `Speed`, `FX`, `FY`, `FZ`) VALUES
     (@GUID + 3, 22466, 1, 3, 0, 0, 2),
     (@GUID + 4, 22466, 1, 3, 0, 0, 0);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 21),
+    (@GUID + 2, 10, 21),
+    (@GUID + 3, 10, 21),
+    (@GUID + 4, 10, 21);
 
 -- --------------------------------------
 -- Zarkhov Engineer - w3404 pe781 - D4 Warrior (Normal) - DWS
@@ -487,6 +574,13 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 9);
 
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 8100),
+    (@GUID + 1, 41, 2000);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 21);
+
 -- --------------------------------------
 -- Zarkhov Medic - w3404 pe781 - D2 Medic (Normal) - DWS
 -- --------------------------------------
@@ -496,6 +590,13 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 9);
+
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 5300),
+    (@GUID + 1, 41, 1500);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 21);
 
 -- --------------------------------------
 -- Zarkhov Crew Chief - w3404 pe781 - D5 Engineer(Normal) - DWS
@@ -507,8 +608,15 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 9);
 
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 11300),
+    (@GUID + 1, 41, 2500);
+
 INSERT INTO `entity_spline` (`Id`, `SplineId`, `Mode`, `Speed`, `FX`, `FY`, `FZ`) VALUES
     (@GUID + 1, 22468, 1, 3, 0, 0, 0);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23);
 
 -- --------------------------------------
 -- Zarkhov Security Turret - w3404 - Normal - DWS
@@ -524,6 +632,19 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 2, @EVENTID, 9),
     (@GUID + 3, @EVENTID, 9);
 
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 8700),
+    (@GUID + 1, 41, 1500),
+    (@GUID + 2, 7, 8700),
+    (@GUID + 2, 41, 1500),
+    (@GUID + 3, 7, 8700),
+    (@GUID + 3, 41, 1500);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23),
+    (@GUID + 2, 10, 23),
+    (@GUID + 3, 10, 23);
+
 -- --------------------------------------
 -- Etheric Organism/Being/Void Creature - (PO4975) W3404 PE781 - D3 Normal - KLW
 -- --------------------------------------
@@ -533,6 +654,12 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 10);
+
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 9200);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23);
 
 -- --------------------------------------
 -- Expedition: Evil from the Ether - W3404 - PE781 - Force Field - Platform - DWS
@@ -557,6 +684,16 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 11),
     (@GUID + 2, @EVENTID, 11),
     (@GUID + 3, @EVENTID, 11);
+
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 7700),
+    (@GUID + 2, 7, 7700),
+    (@GUID + 3, 7, 7700);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23),
+    (@GUID + 2, 10, 23),
+    (@GUID + 3, 10, 23);
 
 -- --------------------------------------
 -- Teleport Controls - PO4921 - W3404 PE781 - KLW
@@ -589,6 +726,14 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 14),
     (@GUID + 2, @EVENTID, 14);
+
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 7400),
+    (@GUID + 2, 7, 7400);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23),
+    (@GUID + 2, 10, 23);
     
 -- --------------------------------------
 -- Upper Deck Teleporter - W3404 PE781 - Flavor - KLW
