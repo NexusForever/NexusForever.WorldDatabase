@@ -779,6 +779,20 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 17);
 
 -- --------------------------------------
+-- Etheric Portal/Void Portal - Small PO4921 - W3404 PE781 - Normal/Veteran - KLW
+-- --------------------------------------
+DELETE FROM `entity_template` WHERE `Id` = 71133;
+
+INSERT INTO `entity_template` (`Id`, `Type`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (71133, 0, 28700, 0, 218, 218);
+
+INSERT INTO `entity_template_property` (`Id`, `Property`, `Value`) VALUES
+    (71133, 7, 5500);
+
+INSERT INTO `entity_template_stat` (`Id`, `Stat`, `Value`) VALUES
+    (71133, 10, 23);
+
+-- --------------------------------------
 -- Upper Deck Door 2 - W3404 PE781 - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
@@ -989,7 +1003,22 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 22);
-  
+
+INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
+    (@GUID + 1, 7, 28300),
+    (@GUID + 1, 41, 8500);
+
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID + 1, 10, 23);
+
+-- --------------------------------------
+-- Etheric Drive Schematics - PO5013 - W3404 PE781 - KLW
+-- --------------------------------------
+DELETE FROM `entity_template` WHERE `Id` = 71821;
+
+INSERT INTO `entity_template` (`Id`, `Type`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (71821, 0, 26389, 0, 219, 219);
+
 -- --------------------------------------
 -- Etheric Ship Exposions - Random Flavor - W3404 PE781 - KLW
 -- --------------------------------------
