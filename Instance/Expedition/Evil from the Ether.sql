@@ -154,6 +154,9 @@ SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
     (@GUID + 1, 0, 71074, @WORLD, 0, 45.68145, -850.07117, -167.29419, -3.1415925, -0, 0, 29278, 9903, 218, 218);
 
+INSERT INTO `entity_script` (`id`, `scriptName`) VALUES
+    (@GUID + 1, 'RavenousReaperEntityScript');
+
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 5);
 
@@ -226,7 +229,7 @@ SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
     (@GUID + 1, 0, 71040, @WORLD, 0, 59.106384, -852.92535, -111.88142, -1.5659521, 0, 0, 23518, 9591, 218, 218),
     (@GUID + 2, 0, 71040, @WORLD, 0, 87.681366, -852.927, -99.72871, -3.1415925, 0, 0, 23518, 9591, 218, 218),
-    (@GUID + 3, 0, 71040, @WORLD, 0, 35.71244, -850.152, -149.4145, -3.1415925, 0, 0, 23518, 9593, 218, 218),
+    (@GUID + 3, 0, 71040, @WORLD, 0, 35.71244, -850.152, -149.4145, -3.1415925, 0, 0, 23518, 9593, 218, 218), -- here
     (@GUID + 4, 0, 71040, @WORLD, 0, 23.35347, -848.28, -185.52249, -1.8181218, 0, 0, 23518, 9591, 218, 218),
     (@GUID + 5, 0, 71040, @WORLD, 0, 64.53046, -850.21686, -185.62106, -2.2867212, 0, 0, 23518, 9593, 218, 218);
 
@@ -260,8 +263,8 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
     (@GUID + 2, 0, 71042, @WORLD, 0, 53.106384, -852.9261, -107.895226, -3.1415925, 0, 0, 23519, 9591, 218, 218),
     (@GUID + 3, 0, 71042, @WORLD, 0, 86.83035, -852.85693, -93.57311, 0.8979735, 0, 0, 23519, 9593, 218, 218),
     (@GUID + 4, 0, 71042, @WORLD, 0, 82.81337, -852.92664, -104.02691, -3.1415925, 0, 0, 23519, 9593, 218, 218),
-    (@GUID + 5, 0, 71042, @WORLD, 0, 32.58246, -850.1016, -155.57751, -3.1415925, 0, 0, 23519, 9593, 218, 218),
-    (@GUID + 6, 0, 71042, @WORLD, 0, 37.36445, -850.11145, -156.8605, -3.1415925, 0, 0, 23519, 9593, 218, 218),
+    (@GUID + 5, 0, 71042, @WORLD, 0, 32.58246, -850.1016, -155.57751, -3.1415925, 0, 0, 23519, 9593, 218, 218), -- here
+    (@GUID + 6, 0, 71042, @WORLD, 0, 37.36445, -850.11145, -156.8605, -3.1415925, 0, 0, 23519, 9593, 218, 218), -- here
     (@GUID + 7, 0, 71042, @WORLD, 0, 26.827469, -849.15826, -180.34639, -1.9742165, 0, 0, 23519, 9593, 218, 218),
     (@GUID + 8, 0, 71042, @WORLD, 0, 71.67044, -850.2323, -178.20377, -3.1415925, 0, 0, 23519, 9593, 218, 218);
 
@@ -321,6 +324,9 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
     (@GUID + 1, 0, 71287, @WORLD, 0, -60.694702, -844.99994, -127.21677, -2.4627595, -0, 0, 37686, 10548, 218, 218);
+
+INSERT INTO `entity_script` (`id`, `scriptName`) VALUES
+    (@GUID + 1, 'SecurityChiefKondovichEntityScript');
 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 7);
@@ -947,9 +953,9 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-    (@GUID + 1, 0, 71221, @WORLD, 0, -43.34448, -842.4745, 276.283, 2.6140773, -0, 0, 36894, 0, 218, 218),
-    (@GUID + 2, 0, 71221, @WORLD, 0, -81.76298, -839.2635, 314.23898, -0.70317346, -0, 0, 36894, 0, 218, 218),
-    (@GUID + 3, 0, 71221, @WORLD, 0, -54.99814, -842.47327, 347.617, -0.46533903, -0, 0, 36894, 0, 218, 218);
+    (@GUID + 1, 0, 71221, @WORLD, 0, -43.34448, -842.4745, 276.283, 2.6140773, -0, 0, 36894, 0, 219, 219),
+    (@GUID + 2, 0, 71221, @WORLD, 0, -81.76298, -839.2635, 314.23898, -0.70317346, -0, 0, 36894, 0, 219, 219),
+    (@GUID + 3, 0, 71221, @WORLD, 0, -54.99814, -842.47327, 347.617, -0.46533903, -0, 0, 36894, 0, 219, 219);
 
 INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID + 1, 10, 23),
@@ -976,7 +982,7 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-    (@GUID + 1, 0, 71134, @WORLD, 0, -53.400387, -832.34875, 378.288, 8.9407E-08, -0, 0, 36894, 0, 218, 218);
+    (@GUID + 1, 0, 71134, @WORLD, 0, -53.400387, -832.34875, 378.288, 8.9407E-08, -0, 0, 36894, 0, 219, 219);
 
 INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID + 1, 10, 23);
@@ -989,7 +995,7 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-    (@GUID + 1, 0, 71832, @WORLD, 0, -53.691555, -830.04047, 345.535, -3.1415925, -0, 0, 37671, 10588, 218, 218);
+    (@GUID + 1, 0, 71832, @WORLD, 0, -53.691555, -830.04047, 345.535, -3.1415925, -0, 0, 37671, 10588, 219, 219);
 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 18);
@@ -1000,6 +1006,9 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
     (@GUID + 1, 0, 71037, @WORLD, 0, -53.6292, -836.1417, 362.948, -3.1415923, -0, 0, 37671, 10588, 218, 218);
+
+INSERT INTO `entity_script` (`id`, `scriptName`) VALUES
+    (@GUID + 1, 'KatjaZarkhovEntityScript');
 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 22);
