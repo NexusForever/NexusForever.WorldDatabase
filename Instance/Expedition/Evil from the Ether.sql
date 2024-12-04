@@ -12,6 +12,175 @@ INSERT INTO map_entrance (mapId, team, worldLocationId) VALUE
     (@WORLD, 0, 50210);
 
 -- --------------------------------------
+-- Custom Vendor for Testing
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID + 1, 0, 71790, @WORLD, 0, -431.15, -845.09, 118.60 , 1.57, -0, 0, 21349, 0, 466, 466);
+
+INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
+    (@GUID + 1, @EVENTID, 0);
+
+INSERT INTO entity_vendor (`id`, `buyPriceMultiplier`, `sellPriceMultiplier`) VALUE
+    (@GUID + 1, 0, 0);
+
+INSERT INTO entity_vendor_category (`id`, `index`, `localisedTextId`) VALUES
+    -- Warrior
+    (@GUID + 1, 1, 72),
+    -- Engineer
+    (@GUID + 1, 2, 73),
+    -- Medic
+    (@GUID + 1, 3, 8429),
+    -- Stalker
+    (@GUID + 1, 4, 76),
+    -- Esper
+    (@GUID + 1, 5, 8428),
+    -- Spellslinger
+    (@GUID + 1, 6, 78);
+
+INSERT INTO entity_vendor_item (`id`, `index`, `categoryIndex`, `itemId`) VALUES
+    -- Heavy Armour
+    -- Warrior AP
+    (@GUID + 1, 1, 1, 58164),
+    (@GUID + 1, 2, 1, 58165),
+    (@GUID + 1, 3, 1, 58166),
+    (@GUID + 1, 4, 1, 58167),
+    (@GUID + 1, 5, 1, 58168),
+    (@GUID + 1, 6, 1, 58169),
+    (@GUID + 1, 7, 1, 58170),
+    (@GUID + 1, 8, 1, 58171),
+    (@GUID + 1, 9, 1, 58172),
+    (@GUID + 1, 10, 1, 58173),
+    -- Warrior SP
+    (@GUID + 1, 11, 1, 58174),
+    (@GUID + 1, 12, 1, 58175),
+    (@GUID + 1, 13, 1, 58176),
+    (@GUID + 1, 14, 1, 58177),
+    (@GUID + 1, 15, 1, 58178),
+    (@GUID + 1, 16, 1, 58179),
+    (@GUID + 1, 17, 1, 58180),
+    (@GUID + 1, 18, 1, 58181),
+    (@GUID + 1, 19, 1, 58182),
+    (@GUID + 1, 20, 1, 58183),
+
+    -- Engineer AP
+    (@GUID + 1, 21, 2, 58224),
+    (@GUID + 1, 22, 2, 58225),
+    (@GUID + 1, 23, 2, 58226),
+    (@GUID + 1, 24, 2, 58227),
+    (@GUID + 1, 25, 2, 58228),
+    (@GUID + 1, 26, 2, 58229),
+    (@GUID + 1, 27, 2, 58230),
+    (@GUID + 1, 28, 2, 58231),
+    (@GUID + 1, 29, 2, 58232),
+    (@GUID + 1, 30, 2, 58233),
+    -- Engineer SP
+    (@GUID + 1, 31, 2, 58234),
+    (@GUID + 1, 32, 2, 58235),
+    (@GUID + 1, 33, 2, 58236),
+    (@GUID + 1, 34, 2, 58237),
+    (@GUID + 1, 35, 2, 58238),
+    (@GUID + 1, 36, 2, 58239),
+    (@GUID + 1, 37, 2, 58240),
+    (@GUID + 1, 38, 2, 58241),
+    (@GUID + 1, 39, 2, 58242),
+    (@GUID + 1, 40, 2, 58243),
+
+    -- Medium Armour
+    -- Medic AP
+    (@GUID + 1, 41, 3, 58284),
+    (@GUID + 1, 42, 3, 58285),
+    (@GUID + 1, 43, 3, 58286),
+    (@GUID + 1, 44, 3, 58287),
+    (@GUID + 1, 45, 3, 58288),
+    (@GUID + 1, 46, 3, 58289),
+    (@GUID + 1, 47, 3, 58290),
+    (@GUID + 1, 48, 3, 58291),
+    (@GUID + 1, 49, 3, 58292),
+    (@GUID + 1, 50, 3, 58293),
+    -- Medic SP
+    (@GUID + 1, 51, 3, 58294),
+    (@GUID + 1, 52, 3, 58295),
+    (@GUID + 1, 53, 3, 58296),
+    (@GUID + 1, 54, 3, 58297),
+    (@GUID + 1, 55, 3, 58298),
+    (@GUID + 1, 56, 3, 58299),
+    (@GUID + 1, 57, 3, 58300),
+    (@GUID + 1, 58, 3, 58301),
+    (@GUID + 1, 59, 3, 58302),
+    (@GUID + 1, 60, 3, 58303),
+
+    -- Stalker AP
+    (@GUID + 1, 61, 4, 58344),
+    (@GUID + 1, 62, 4, 58345),
+    (@GUID + 1, 63, 4, 58346),
+    (@GUID + 1, 64, 4, 58347),
+    (@GUID + 1, 65, 4, 58348),
+    (@GUID + 1, 66, 4, 58349),
+    (@GUID + 1, 67, 4, 58350),
+    (@GUID + 1, 68, 4, 58351),
+    (@GUID + 1, 69, 4, 58352),
+    (@GUID + 1, 70, 4, 58353),
+    -- Stalker SP
+    (@GUID + 1, 71, 4, 58354),
+    (@GUID + 1, 72, 4, 58355),
+    (@GUID + 1, 73, 4, 58356),
+    (@GUID + 1, 74, 4, 58357),
+    (@GUID + 1, 75, 4, 58358),
+    (@GUID + 1, 76, 4, 58359),
+    (@GUID + 1, 77, 4, 58360),
+    (@GUID + 1, 78, 4, 58361),
+    (@GUID + 1, 79, 4, 58362),
+    (@GUID + 1, 80, 4, 58363),
+
+    -- Light Armour
+    -- Esper AP
+    (@GUID + 1, 81, 5, 58404),
+    (@GUID + 1, 82, 5, 58405),
+    (@GUID + 1, 83, 5, 58406),
+    (@GUID + 1, 84, 5, 58407),
+    (@GUID + 1, 85, 5, 58408),
+    (@GUID + 1, 86, 5, 58409),
+    (@GUID + 1, 87, 5, 58410),
+    (@GUID + 1, 88, 5, 58411),
+    (@GUID + 1, 89, 5, 58412),
+    (@GUID + 1, 90, 5, 58413),
+    -- Esper SP
+    (@GUID + 1, 91, 5, 58414),
+    (@GUID + 1, 92, 5, 58415),
+    (@GUID + 1, 93, 5, 58416),
+    (@GUID + 1, 94, 5, 58417),
+    (@GUID + 1, 95, 5, 58418),
+    (@GUID + 1, 96, 5, 58419),
+    (@GUID + 1, 97, 5, 58420),
+    (@GUID + 1, 98, 5, 58421),
+    (@GUID + 1, 99, 5, 58422),
+    (@GUID + 1, 100, 5, 58423),
+
+    -- Spellslinger AP
+    (@GUID + 1, 101, 6, 58464),
+    (@GUID + 1, 102, 6, 58465),
+    (@GUID + 1, 103, 6, 58466),
+    (@GUID + 1, 104, 6, 58467),
+    (@GUID + 1, 105, 6, 58468),
+    (@GUID + 1, 106, 6, 58469),
+    (@GUID + 1, 107, 6, 58470),
+    (@GUID + 1, 108, 6, 58471),
+    (@GUID + 1, 109, 6, 58472),
+    (@GUID + 1, 110, 6, 58473),
+    -- Spellslinger SP
+    (@GUID + 1, 111, 6, 58474),
+    (@GUID + 1, 112, 6, 58475),
+    (@GUID + 1, 113, 6, 58476),
+    (@GUID + 1, 114, 6, 58477),
+    (@GUID + 1, 115, 6, 58478),
+    (@GUID + 1, 116, 6, 58479),
+    (@GUID + 1, 117, 6, 58480),
+    (@GUID + 1, 118, 6, 58481),
+    (@GUID + 1, 119, 6, 58482),
+    (@GUID + 1, 120, 6, 58483);
+
+-- --------------------------------------
 -- Expedition: Hunger from the Void - w3404 - Return to Nexus - DWS
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
