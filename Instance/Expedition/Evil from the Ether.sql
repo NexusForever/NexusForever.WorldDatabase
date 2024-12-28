@@ -233,6 +233,11 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
     (@GUID + 4, 0, 71040, @WORLD, 0, 23.35347, -848.28, -185.52249, -1.8181218, 0, 0, 23518, 9591, 218, 218),
     (@GUID + 5, 0, 71040, @WORLD, 0, 64.53046, -850.21686, -185.62106, -2.2867212, 0, 0, 23518, 9593, 218, 218);
 
+INSERT INTO `entity_script` (`id`, `scriptName`) VALUES
+    (@GUID + 1, 'RavenousRefugeeEntityScript'),
+    (@GUID + 2, 'RavenousRefugeeEntityScript'),
+    (@GUID + 3, 'RavenousRefugeeEntityScript');
+
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 2),
     (@GUID + 2, @EVENTID, 2),
@@ -267,6 +272,14 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
     (@GUID + 6, 0, 71042, @WORLD, 0, 37.36445, -850.11145, -156.8605, -3.1415925, 0, 0, 23519, 9593, 218, 218), -- here
     (@GUID + 7, 0, 71042, @WORLD, 0, 26.827469, -849.15826, -180.34639, -1.9742165, 0, 0, 23519, 9593, 218, 218),
     (@GUID + 8, 0, 71042, @WORLD, 0, 71.67044, -850.2323, -178.20377, -3.1415925, 0, 0, 23519, 9593, 218, 218);
+
+INSERT INTO `entity_script` (`id`, `scriptName`) VALUES
+    (@GUID + 1, 'RavenousRefugeeEntityScript'),
+    (@GUID + 2, 'RavenousRefugeeEntityScript'),
+    (@GUID + 3, 'RavenousRefugeeEntityScript'),
+    (@GUID + 4, 'RavenousRefugeeEntityScript'),
+    (@GUID + 5, 'RavenousRefugeeEntityScript'),
+    (@GUID + 6, 'RavenousRefugeeEntityScript');
 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 2),
