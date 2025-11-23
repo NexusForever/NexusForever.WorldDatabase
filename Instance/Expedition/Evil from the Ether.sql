@@ -402,6 +402,11 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
     (@GUID + 4, 0, 71040, @WORLD, 0, 23.35347, -848.28, -185.52249, -1.8181218, 0, 0, 23518, 9591, 218, 218),
     (@GUID + 5, 0, 71040, @WORLD, 0, 64.53046, -850.21686, -185.62106, -2.2867212, 0, 0, 23518, 9593, 218, 218);
 
+INSERT INTO `entity_script` (`id`, `scriptName`) VALUES
+    (@GUID + 1, 'RavenousRefugeeEntityScript'),
+    (@GUID + 2, 'RavenousRefugeeEntityScript'),
+    (@GUID + 3, 'RavenousRefugeeEntityScript');
+
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 2),
     (@GUID + 2, @EVENTID, 2),
@@ -436,6 +441,14 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
     (@GUID + 6, 0, 71042, @WORLD, 0, 37.36445, -850.11145, -156.8605, -3.1415925, 0, 0, 23519, 9593, 218, 218), -- here
     (@GUID + 7, 0, 71042, @WORLD, 0, 26.827469, -849.15826, -180.34639, -1.9742165, 0, 0, 23519, 9593, 218, 218),
     (@GUID + 8, 0, 71042, @WORLD, 0, 71.67044, -850.2323, -178.20377, -3.1415925, 0, 0, 23519, 9593, 218, 218);
+
+INSERT INTO `entity_script` (`id`, `scriptName`) VALUES
+    (@GUID + 1, 'RavenousRefugeeEntityScript'),
+    (@GUID + 2, 'RavenousRefugeeEntityScript'),
+    (@GUID + 3, 'RavenousRefugeeEntityScript'),
+    (@GUID + 4, 'RavenousRefugeeEntityScript'),
+    (@GUID + 5, 'RavenousRefugeeEntityScript'),
+    (@GUID + 6, 'RavenousRefugeeEntityScript');
 
 INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 2),
@@ -954,17 +967,14 @@ INSERT INTO `entity_event` (`id`, `eventId`, `phase`) VALUES
     (@GUID + 1, @EVENTID, 17);
 
 -- --------------------------------------
--- Etheric Portal/Void Portal - Small PO4921 - W3404 PE781 - Normal/Veteran - KLW
+-- Tethered Organism/Being/Void Creature - W3404 PE781 - D1 Normal - KLW
 -- --------------------------------------
-DELETE FROM `entity_template` WHERE `Id` = 71133;
-
-INSERT INTO `entity_template` (`Id`, `Type`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-    (71133, 0, 28700, 0, 218, 218);
-
-INSERT INTO `entity_template_property` (`Id`, `Property`, `Value`) VALUES
+DELETE FROM `creature_info_property` WHERE `Id` = 71133;
+INSERT INTO `creature_info_property` (`Id`, `Property`, `Value`) VALUES
     (71133, 7, 5500);
 
-INSERT INTO `entity_template_stat` (`Id`, `Stat`, `Value`) VALUES
+DELETE FROM `creature_info_stat` WHERE `Id` = 71133;
+INSERT INTO `creature_info_stat` (`Id`, `Stat`, `Value`) VALUES
     (71133, 10, 23);
 
 -- --------------------------------------
@@ -1188,14 +1198,6 @@ INSERT INTO `entity_property` (`Id`, `Property`, `Value`) VALUES
 
 INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID + 1, 10, 23);
-
--- --------------------------------------
--- Etheric Drive Schematics - PO5013 - W3404 PE781 - KLW
--- --------------------------------------
-DELETE FROM `entity_template` WHERE `Id` = 71821;
-
-INSERT INTO `entity_template` (`Id`, `Type`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-    (71821, 0, 26389, 0, 219, 219);
 
 -- --------------------------------------
 -- Etheric Ship Exposions - Random Flavor - W3404 PE781 - KLW
