@@ -804,10 +804,6 @@ DELETE FROM `creature_info_property` WHERE `Id` = 71133;
 INSERT INTO `creature_info_property` (`Id`, `Property`, `Value`) VALUES
     (71133, 7, 5500);
 
-DELETE FROM `creature_info_stat` WHERE `Id` = 71133;
-INSERT INTO `creature_info_stat` (`Id`, `Stat`, `Value`) VALUES
-    (71133, 10, 23);
-
 -- --------------------------------------
 -- Upper Deck Door 2 - W3404 PE781 - KLW
 -- --------------------------------------
