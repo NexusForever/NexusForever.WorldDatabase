@@ -8,36 +8,42 @@ DELETE FROM `entity` WHERE `world` = @WORLD;
 -- HA15 - Hoverboard Race Direction Arrow (Single) - MLB13/DJU
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 72051, @WORLD, 0, 11.53973, -826.6583, -126.70247, 2.180682, -1.7881393E-07, -0.17453285, 37953, 0, 219, 219),
-	(@GUID + 2, 10, 72051, @WORLD, 0, 5.46606, -871.9239, -114.318, -0.17903551, -4.0698797E-07, 0.09756401, 37953, 0, 219, 219),
-	(@GUID + 3, 10, 72051, @WORLD, 0, 16.2488, -833.82825, -205.353, 1.521975, -8.940697E-08, -0.13962637, 37953, 0, 219, 219),
-	(@GUID + 4, 10, 72051, @WORLD, 0, -213.88542, -854.6448, -101.37892, -0.567536, 6.7160926E-08, 6.592892E-07, 37953, 0, 219, 219),
-	(@GUID + 5, 10, 72051, @WORLD, 0, 119.466, -870.717, -180.755, 0.64985895, -0, 0, 37953, 0, 219, 219),
-	(@GUID + 6, 10, 72051, @WORLD, 0, -314.557, -881.2678, -354.799, -2.6409228, -8.195639E-08, -0.17453289, 37953, 0, 219, 219),
-	(@GUID + 8, 10, 72051, @WORLD, 0, -242.84775, -857.1094, -117.443375, -0.8111132, -1.0430813E-07, 0.17453265, 37953, 0, 219, 219),
-	(@GUID + 9, 10, 72051, @WORLD, 0, -172.459, -864.75464, -368.366, 2.2438095, 4.0233135E-07, 0.29670656, 37953, 0, 219, 219),
-	(@GUID + 10, 10, 72051, @WORLD, 0, -143.185, -843.825, -403.749, 2.374211, 1.4972902E-07, -1.3397276E-08, 37953, 0, 219, 219),
-	(@GUID + 11, 10, 72051, @WORLD, 0, 41.790646, -824.69824, -141.41347, 1.6769382, 9.685755E-08, -0.13962644, 37953, 0, 219, 219),
-	(@GUID + 12, 10, 72051, @WORLD, 0, -91.7501, -878.0295, -103.282, -0.1319003, 2.4493784E-07, -0.15707897, 37953, 0, 219, 219),
-	(@GUID + 13, 10, 72051, @WORLD, 0, -53.3883, -860.8746, -247.66, 2.7709842, -7.18981E-07, -0.31415826, 37953, 0, 219, 219),
-	(@GUID + 14, 10, 72051, @WORLD, 0, -30.4006, -860.7351, -271.932, 1.9892137, -5.2154064E-07, -0.3141582, 37953, 0, 219, 219),
-	(@GUID + 15, 10, 72051, @WORLD, 0, -279.54, -870.956, -415.151, -2.5605116, -0, 0, 37953, 0, 219, 219),
-	(@GUID + 16, 10, 72051, @WORLD, 0, -244.828, -862.553, -430.812, -3.1415925, -0, 0, 37953, 0, 219, 219),
-	(@GUID + 17, 10, 72051, @WORLD, 0, -15.5226, -835.493, -190.974, 2.2272766, -7.450581E-09, -0.13962635, 37953, 0, 219, 219),
-	(@GUID + 18, 10, 72051, @WORLD, 0, -231.797, -861.9061, -395.40137, 2.7359612, -0, 0, 37953, 0, 219, 219),
-	(@GUID + 19, 10, 72051, @WORLD, 0, 166.685, -875.722, -242.077, 0.9240147, -0, 0, 37953, 0, 219, 219),
-	(@GUID + 20, 10, 72051, @WORLD, 0, -328.281, -875.48914, -178.28, -1.2691162, -0.15707883, 0.13962568, 37953, 0, 219, 219),
-	(@GUID + 21, 10, 72051, @WORLD, 0, 183.988, -878.623, -334.514, 1.4806423, -7.9896E-09, -2.1812774E-08, 37953, 0, 219, 219),
-	(@GUID + 22, 10, 72051, @WORLD, 0, -187.108, -864.47253, -349.853, 2.7512078, 4.0978193E-08, 0.29670694, 37953, 0, 219, 219),
-	(@GUID + 23, 10, 72051, @WORLD, 0, 30.636, -854.3883, -554.249, 3.1415699, 1.5616353, 1.3524238, 37953, 0, 219, 219),
-	(@GUID + 24, 10, 72051, @WORLD, 0, 42.8493, -854.29236, -542.586, 0.27310213, 1.5274568, -2.665782, 37953, 0, 219, 219),
-	(@GUID + 25, 10, 72051, @WORLD, 0, 51.703, -852.93744, -529.602, 1.788228E-07, 1.4033554, -1.3202176, 37953, 0, 219, 219),
-	(@GUID + 26, 10, 72051, @WORLD, 0, 52.8417, -850.5576, -512.7, 0.4470765, 1.4783783, -1.6622955, 37953, 0, 219, 219),
-	(@GUID + 27, 10, 72051, @WORLD, 0, 31.14209, -824.5304, 69.124626, 1.7453309, -0, 0, 37953, 0, 219, 219),
-	(@GUID + 28, 10, 72051, @WORLD, 0, 58.31718, -824.5304, 69.124596, 1.3962644, -0, 0, 37953, 0, 219, 219),
-	(@GUID + 29, 10, 72051, @WORLD, 0, 27.0438, -822.69336, 17.1717, 1.7453309, -0, 0, 37953, 0, 219, 219),
-	(@GUID + 30, 10, 72051, @WORLD, 0, 58.1882, -822.0521, 17.1717, 1.3962644, -0, 0, 37953, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `QuestChecklistIdx`) VALUES
+	(@GUID + 1, 10, 72051, @WORLD, 0, 30.636, -854.3883, -554.249, 3.1415699, 1.5616353, 1.3524238, 37953, 0, 219, 219, 0),
+	(@GUID + 2, 10, 72051, @WORLD, 0, 42.8493, -854.29236, -542.586, 0.27310213, 1.5274568, -2.665782, 37953, 0, 219, 219, 1),
+	(@GUID + 3, 10, 72051, @WORLD, 0, 51.703, -852.93744, -529.602, 1.788228E-07, 1.4033554, -1.3202176, 37953, 0, 219, 219, 2),
+	(@GUID + 4, 10, 72051, @WORLD, 0, 52.8417, -850.5576, -512.7, 0.4470765, 1.4783783, -1.6622955, 37953, 0, 219, 219, 3),
+	(@GUID + 5, 10, 72051, @WORLD, 0, 11.53973, -826.6583, -126.70247, 2.180682, -1.7881393E-07, -0.17453285, 37953, 0, 219, 219, 4),
+	(@GUID + 6, 10, 72051, @WORLD, 0, 5.46606, -871.9239, -114.318, -0.17903551, -4.0698797E-07, 0.09756401, 37953, 0, 219, 219, 5),
+	(@GUID + 7, 10, 72051, @WORLD, 0, 16.2488, -833.82825, -205.353, 1.521975, -8.940697E-08, -0.13962637, 37953, 0, 219, 219, 6),
+	(@GUID + 8, 10, 72051, @WORLD, 0, -213.88542, -854.6448, -101.37892, -0.567536, 6.7160926E-08, 6.592892E-07, 37953, 0, 219, 219, 7),
+	(@GUID + 9, 10, 72051, @WORLD, 0, 119.466, -870.717, -180.755, 0.64985895, -0, 0, 37953, 0, 219, 219, 8),
+	(@GUID + 10, 10, 72051, @WORLD, 0, -314.557, -881.2678, -354.799, -2.6409228, -8.195639E-08, -0.17453289, 37953, 0, 219, 219, 9),
+	(@GUID + 11, 10, 72051, @WORLD, 0, -242.84775, -857.1094, -117.443375, -0.8111132, -1.0430813E-07, 0.17453265, 37953, 0, 219, 219, 10),
+	(@GUID + 12, 10, 72051, @WORLD, 0, -172.459, -864.75464, -368.366, 2.2438095, 4.0233135E-07, 0.29670656, 37953, 0, 219, 219, 11),
+	(@GUID + 13, 10, 72051, @WORLD, 0, -143.185, -843.825, -403.749, 2.374211, 1.4972902E-07, -1.3397276E-08, 37953, 0, 219, 219, 12),
+	(@GUID + 14, 10, 72051, @WORLD, 0, 41.790646, -824.69824, -141.41347, 1.6769382, 9.685755E-08, -0.13962644, 37953, 0, 219, 219, 13),
+	(@GUID + 15, 10, 72051, @WORLD, 0, -91.7501, -878.0295, -103.282, -0.1319003, 2.4493784E-07, -0.15707897, 37953, 0, 219, 219, 14),
+	(@GUID + 16, 10, 72051, @WORLD, 0, -53.3883, -860.8746, -247.66, 2.7709842, -7.18981E-07, -0.31415826, 37953, 0, 219, 219, 15),
+	(@GUID + 17, 10, 72051, @WORLD, 0, -30.4006, -860.7351, -271.932, 1.9892137, -5.2154064E-07, -0.3141582, 37953, 0, 219, 219, 16),
+	(@GUID + 18, 10, 72051, @WORLD, 0, -279.54, -870.956, -415.151, -2.5605116, -0, 0, 37953, 0, 219, 219, 17),
+	(@GUID + 19, 10, 72051, @WORLD, 0, -244.828, -862.553, -430.812, -3.1415925, -0, 0, 37953, 0, 219, 219, 18),
+	(@GUID + 20, 10, 72051, @WORLD, 0, -15.5226, -835.493, -190.974, 2.2272766, -7.450581E-09, -0.13962635, 37953, 0, 219, 219, 19),
+	(@GUID + 21, 10, 72051, @WORLD, 0, -231.797, -861.9061, -395.40137, 2.7359612, -0, 0, 37953, 0, 219, 219, 20),
+	(@GUID + 22, 10, 72051, @WORLD, 0, 166.685, -875.722, -242.077, 0.9240147, -0, 0, 37953, 0, 219, 219, 21),
+	(@GUID + 23, 10, 72051, @WORLD, 0, -328.281, -875.48914, -178.28, -1.2691162, -0.15707883, 0.13962568, 37953, 0, 219, 219, 22),
+	(@GUID + 24, 10, 72051, @WORLD, 0, 183.988, -878.623, -334.514, 1.4806423, -7.9896E-09, -2.1812774E-08, 37953, 0, 219, 219, 23),
+	(@GUID + 25, 10, 72051, @WORLD, 0, -187.108, -864.47253, -349.853, 2.7512078, 4.0978193E-08, 0.29670694, 37953, 0, 219, 219, 24),
+	(@GUID + 26, 10, 72051, @WORLD, 0, 31.14209, -824.5304, 69.124626, 1.7453309, -0, 0, 37953, 0, 219, 219, 25),
+	(@GUID + 27, 10, 72051, @WORLD, 0, 58.31718, -824.5304, 69.124596, 1.3962644, -0, 0, 37953, 0, 219, 219, 26),
+	(@GUID + 28, 10, 72051, @WORLD, 0, 27.0438, -822.69336, 17.1717, 1.7453309, -0, 0, 37953, 0, 219, 219, 27),
+	(@GUID + 29, 10, 72051, @WORLD, 0, 58.1882, -822.0521, 17.1717, 1.3962644, -0, 0, 37953, 0, 219, 219, 28);
+
+INSERT INTO `entity_script` (`id`, `scriptName`) VALUES
+    (@GUID + 1, 'DirectionArrowEntityScript'),
+    (@GUID + 2, 'DirectionArrowEntityScript'),
+    (@GUID + 3, 'DirectionArrowEntityScript'),
+    (@GUID + 4, 'DirectionArrowPt2EntityScript');
 
 -- --------------------------------------
 -- Hoverboard Hologram Projector - NPEU - Part 1 - Coralus - JBN
@@ -49,9 +55,9 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 -- --------------------------------------
 -- Barrier - NPEU - Part 1 - Coralus - JBN
 -- --------------------------------------
--- SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
--- INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	-- (@GUID + 1, 32, 73610, @WORLD, 0, 44.276382, -846.0042, -490.20578, -2.6535666, -3.427267E-07, 1.5707973, 26595, 0, 219, 219);
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+	(@GUID + 1, 32, 73610, @WORLD, 0, 44.276382, -846.0042, -490.20578, -2.6535666, -3.427267E-07, 1.5707973, 26595, 0, 219, 219);
 
 -- --------------------------------------
 -- Pressure Plate - Obj0 - NPEU - Part 1 - JBN
@@ -78,21 +84,24 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 -- Pre-Tutorial - Objective Ring - JDT
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `QuestChecklistIdx`) VALUES
-	(@GUID + 1, 10, 70939, @WORLD, 0, 32.5681, -853.8421, -544.807, -3.1415925, -0, 0, 30327, 0, 219, 219, 0),
-	(@GUID + 2, 10, 70939, @WORLD, 0, 54.0914, -853.87, -540.177, -3.1415925, -0, 0, 30327, 0, 219, 219, 1),
-	(@GUID + 3, 10, 70939, @WORLD, 0, 48.8309, -851.4624, -519.369, -3.1415925, -0, 0, 30327, 0, 219, 219, 2),
-	(@GUID + 4, 10, 70939, @WORLD, 0, 57.397274, -847.7159, -504.74612, -2.6179943, -0, 0, 30327, 0, 219, 219, 3);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `QuestChecklistIdx`, `Mode`) VALUES
+	(@GUID + 1, 10, 70939, @WORLD, 0, 32.5681, -853.8421, -544.807, -3.1415925, -0, 0, 30327, 0, 219, 219, 0, 3),
+	(@GUID + 2, 10, 70939, @WORLD, 0, 54.0914, -853.87, -540.177, -3.1415925, -0, 0, 30327, 0, 219, 219, 1, 3),
+	(@GUID + 3, 10, 70939, @WORLD, 0, 48.8309, -851.4624, -519.369, -3.1415925, -0, 0, 30327, 0, 219, 219, 2,  3),
+	(@GUID + 4, 10, 70939, @WORLD, 0, 57.397274, -847.7159, -504.74612, -2.6179943, -0, 0, 30327, 0, 219, 219, 3, 3);
+
+INSERT INTO `entity_script` (`id`, `scriptName`) VALUES
+    (@GUID + 1, 'ObjectiveRingEntityScript'),
+    (@GUID + 2, 'ObjectiveRingEntityScript'),
+    (@GUID + 3, 'ObjectiveRingEntityScript'),
+    (@GUID + 4, 'ObjectiveRingPt2EntityScript');
 
 -- --------------------------------------
 -- Hoverboard - Spinning Hologram - NPEU - Part 1 - Coralus - JBN
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73619, @WORLD, 0, 55.9379, -846.626, -501.248, -3.1415925, -0, 0, 38500, 0, 219, 219),
-	(@GUID + 2, 10, 73619, @WORLD, 0, 55.9379, -846.626, -501.248, -3.1415925, -0, 0, 38500, 0, 219, 219),
-	(@GUID + 3, 10, 73619, @WORLD, 0, 55.9379, -846.626, -501.248, -3.1415925, -0, 0, 38500, 0, 219, 219),
-	(@GUID + 4, 10, 73619, @WORLD, 0, 55.9379, -846.626, -501.248, -3.1415925, -0, 0, 38500, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73619, @WORLD, 0, 55.9379, -846.626, -501.248, -3.1415925, -0, 0, 38500, 0, 219, 219, 3);
 
 -- --------------------------------------
 -- Extra Booster - NPEU - Part 1 - Coralus - JBN
@@ -913,175 +922,175 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 -- NPEU - Part 5 - Holotable - Red Top - Flavor - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73708, @WORLD, 0, -4307.5312, -445.12848, -4057.0251, 2.8490813, 4.3767668E-07, -8.633655E-08, 24323, 0, 219, 219),
-	(@GUID + 2, 10, 73708, @WORLD, 0, -4288.158, -445.12836, -4061.051, 0.66153705, 3.7246036E-08, -4.315067E-08, 24323, 0, 219, 219),
-	(@GUID + 3, 10, 73708, @WORLD, 0, -4302.991, -445.12848, -4084.167, 0.4309593, 1.2112148E-06, -2.3269624E-07, 24323, 0, 219, 219),
-	(@GUID + 4, 10, 73708, @WORLD, 0, -4284.083, -445.12836, -4084.631, 1.731196, -1.3631417E-07, 2.49597E-08, 24323, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73708, @WORLD, 0, -4307.5312, -445.12848, -4057.0251, 2.8490813, 4.3767668E-07, -8.633655E-08, 24323, 0, 219, 219, 2),
+	(@GUID + 2, 10, 73708, @WORLD, 0, -4288.158, -445.12836, -4061.051, 0.66153705, 3.7246036E-08, -4.315067E-08, 24323, 0, 219, 219, 2),
+	(@GUID + 3, 10, 73708, @WORLD, 0, -4302.991, -445.12848, -4084.167, 0.4309593, 1.2112148E-06, -2.3269624E-07, 24323, 0, 219, 219, 2),
+	(@GUID + 4, 10, 73708, @WORLD, 0, -4284.083, -445.12836, -4084.631, 1.731196, -1.3631417E-07, 2.49597E-08, 24323, 0, 219, 219, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Holotable - Green Top - Flavor - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73709, @WORLD, 0, -4286.141, -445.12836, -4120.433, 0.43572053, 6.6366795E-07, -1.4233457E-07, 24323, 0, 219, 219),
-	(@GUID + 2, 10, 73709, @WORLD, 0, -4308.6333, -445.12836, -4150.939, 2.1888812, -4.9678493E-07, 1.5638065E-07, 24323, 0, 219, 219),
-	(@GUID + 3, 10, 73709, @WORLD, 0, -4288.9893, -445.12836, -4140.309, 0.8290866, 8.705737E-07, -4.1092855E-07, 24323, 0, 219, 219),
-	(@GUID + 4, 10, 73709, @WORLD, 0, -4306.682, -445.12836, -4128.459, 0.44079188, 4.7066737E-07, -7.0408305E-08, 24323, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73709, @WORLD, 0, -4286.141, -445.12836, -4120.433, 0.43572053, 6.6366795E-07, -1.4233457E-07, 24323, 0, 219, 219, 2),
+	(@GUID + 2, 10, 73709, @WORLD, 0, -4308.6333, -445.12836, -4150.939, 2.1888812, -4.9678493E-07, 1.5638065E-07, 24323, 0, 219, 219, 2),
+	(@GUID + 3, 10, 73709, @WORLD, 0, -4288.9893, -445.12836, -4140.309, 0.8290866, 8.705737E-07, -4.1092855E-07, 24323, 0, 219, 219, 2),
+	(@GUID + 4, 10, 73709, @WORLD, 0, -4306.682, -445.12836, -4128.459, 0.44079188, 4.7066737E-07, -7.0408305E-08, 24323, 0, 219, 219, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Hologram ALLY: Aurin Female - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73669, @WORLD, 0, -4308.0923, -444.53796, -4150.6885, -2.3964317, -0, 0, 33537, 9481, 171, 171);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73669, @WORLD, 0, -4308.0923, -444.53796, -4150.6885, -2.3964317, -0, 0, 33537, 9481, 171, 171, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Hologram ALLY: Human Male - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73670, @WORLD, 0, -4288.934, -444.53793, -4140.571, -2.7957046, -0, 0, 25752, 9631, 171, 171);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73670, @WORLD, 0, -4288.934, -444.53793, -4140.571, -2.7957046, -0, 0, 25752, 9631, 171, 171, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Hologram ALLY: Granok Male - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73671, @WORLD, 0, -4306.679, -444.53793, -4128.4604, -1.9585915, 0, 0, 26341, 8980, 171, 171);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73671, @WORLD, 0, -4306.679, -444.53793, -4128.4604, -1.9585915, 0, 0, 26341, 8980, 171, 171, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Hologram ALLY: Mordesh Female - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73672, @WORLD, 0, -4286.139, -444.5379, -4120.436, 2.203918, -0, 0, 33581, 9411, 171, 171);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73672, @WORLD, 0, -4286.139, -444.5379, -4120.436, 2.203918, -0, 0, 33581, 9411, 171, 171, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Hologram ENEMY: Chua - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73673, @WORLD, 0, -4302.6167, -444.5379, -4084.4895, -0.90105855, -0, 0, 31243, 9514, 170, 170);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73673, @WORLD, 0, -4302.6167, -444.5379, -4084.4895, -0.90105855, -0, 0, 31243, 9514, 170, 170, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Hologram ENEMY: Cassian Female - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73674, @WORLD, 0, -4284.084, -444.53796, -4084.626, 1.0560148, -0, 0, 26116, 9008, 170, 170);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73674, @WORLD, 0, -4284.084, -444.53796, -4084.626, 1.0560148, -0, 0, 26116, 9008, 170, 170, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Hologram ENEMY: Draken Male - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73675, @WORLD, 0, -4288.1606, -444.53796, -4061.0513, 1.1247197, -0, 0, 30687, 9614, 170, 170);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73675, @WORLD, 0, -4288.1606, -444.53796, -4061.0513, 1.1247197, -0, 0, 30687, 9614, 170, 170, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Hologram ENEMY: Mechari Female - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73676, @WORLD, 0, -4307.5273, -444.53793, -4057.0222, -0.5267299, -0, 0, 30316, 9842, 170, 170);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 10, 73676, @WORLD, 0, -4307.5273, -444.53793, -4057.0222, -0.5267299, -0, 0, 30316, 9842, 170, 170, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Holotable - Exile Allies: Aurin - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-(@GUID + 1, 10, 73677, @WORLD, 0, -4308.6333, -446.81686, -4150.9395, -0.9584306, -0, 0, 27590, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+(@GUID + 1, 10, 73677, @WORLD, 0, -4308.6333, -446.81686, -4150.9395, -0.9584306, -0, 0, 27590, 0, 219, 219, 58536116404490);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Holotable - Exile Allies: Humans - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73678, @WORLD, 0, -4288.989, -446.81683, -4140.312, -2.3130794, -0, 0, 27590, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+	(@GUID + 1, 10, 73678, @WORLD, 0, -4288.989, -446.81683, -4140.312, -2.3130794, -0, 0, 27590, 0, 219, 219, 58540411371786);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Holotable - Exile Allies: Granok - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73679, @WORLD, 0, -4306.679, -446.81686, -4128.4604, 0.43356788, -0, 0, 27590, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+	(@GUID + 1, 10, 73679, @WORLD, 0, -4306.679, -446.81686, -4128.4604, 0.43356788, -0, 0, 27590, 0, 219, 219, 58531821437194);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Holotable - Exile Allies: Mordesh - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73680, @WORLD, 0, -4286.139, -446.81683, -4120.436, 0.43356788, -0, 0, 27590, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+	(@GUID + 1, 10, 73680, @WORLD, 0, -4286.139, -446.81683, -4120.436, 0.43356788, -0, 0, 27590, 0, 219, 219, 58544706339082);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Holotable - Exile Enemies: Chua - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73681, @WORLD, 0, -4302.997, -446.81683, -4084.167, 0.43356788, -0, 0, 27590, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+	(@GUID + 1, 10, 73681, @WORLD, 0, -4302.997, -446.81683, -4084.167, 0.43356788, -0, 0, 27590, 0, 219, 219, 58518936535306);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Holotable - Exile Enemies: Cassians - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73682, @WORLD, 0, -4284.084, -446.8169, -4084.626, 1.7266663, -0, 0, 27590, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+	(@GUID + 1, 10, 73682, @WORLD, 0, -4284.084, -446.8169, -4084.626, 1.7266663, -0, 0, 27590, 0, 219, 219, 58523231502602);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Holotable - Exile Enemies: Draken - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73683, @WORLD, 0, -4288.1606, -446.81686, -4061.0513, -2.4790704, -0, 0, 27590, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+	(@GUID + 1, 10, 73683, @WORLD, 0, -4288.1606, -446.81686, -4061.0513, -2.4790704, -0, 0, 27590, 0, 219, 219, 58527526469898);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Holotable - Exile Enemies: Mechari - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73684, @WORLD, 0, -4307.5273, -446.81683, -4057.0222, 2.8560379, -0, 0, 27590, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+	(@GUID + 1, 10, 73684, @WORLD, 0, -4307.5273, -446.81683, -4057.0222, 2.8560379, -0, 0, 27590, 0, 219, 219, 58514641568010);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Depart Northern Wilds Monitor/Screen - Exile Flavor - State0 - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 74918, @WORLD, 0, -4209.7744, -442.88614, -4167.4155, 1.6771984, -0.095483474, -0.010182139, 31525, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+	(@GUID + 1, 10, 74918, @WORLD, 0, -4209.7744, -442.88614, -4167.4155, 1.6771984, -0.095483474, -0.010182139, 31525, 0, 219, 219, 58497461698826);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Depart Everstar Grove Monitor/Screen - Exile Flavor - State0 - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 74919, @WORLD, 0, -4225.482, -442.79266, -4178.4756, 2.9786053, -0, 0, 31525, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
+	(@GUID + 1, 10, 74919, @WORLD, 0, -4225.482, -442.79266, -4178.4756, 2.9786053, -0, 0, 31525, 0, 219, 219, 60056534827274);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Depart Northern Wilds Description - Exile Flavor - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 32, 74922, @WORLD, 0, -4211.019, -445.23718, -4167.2573, 1.6771022, -0.004498907, 0.04213619, 28014, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 32, 74922, @WORLD, 0, -4211.019, -445.23718, -4167.2573, 1.6771022, -0.004498907, 0.04213619, 28014, 0, 219, 219, 2);
 
 -- --------------------------------------
 -- NPEU - Part 5 - Depart Everstar Grove Description - Exile Flavor - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 32, 74923, @WORLD, 0, -4225.723, -445.05606, -4177.061, 2.9801984, 0.0059292056, 0.03421586, 28014, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `Mode`) VALUES
+	(@GUID + 1, 32, 74923, @WORLD, 0, -4225.723, -445.05606, -4177.061, 2.9801984, 0.0059292056, 0.03421586, 28014, 0, 219, 219, 2);
 
 -- --------------------------------------
 -- Departures Terminal: Everstar Grove - NPEU - Part 5 - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 32, 73605, @WORLD, 0, -4152.045, -449.55466, -4193.5903, 2.0942326, -0.13837597, 0.010255058, 23861, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`, `Mode`) VALUES
+	(@GUID + 1, 32, 73605, @WORLD, 0, -4152.045, -449.55466, -4193.5903, 2.0942326, -0.13837597, 0.010255058, 23861, 0, 219, 219, 58622015750410, 2);
 
 -- --------------------------------------
 -- Departures Terminal: The Northern Wilds - NPEU - Part 5 - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
-INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
-	(@GUID + 1, 10, 73606, @WORLD, 0, -4152.0664, -449.55457, -4187.1313, 0.7487714, -0.13837597, 0.010255276, 23861, 0, 219, 219);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`, `Mode`) VALUES
+	(@GUID + 1, 10, 73606, @WORLD, 0, -4152.0664, -449.55457, -4187.1313, 0.7487714, -0.13837597, 0.010255276, 23861, 0, 219, 219, 51165952524554, 2);
 
 -- --------------------------------------
 -- Professor Rhoda Wellspring - NPEU - Part 5 Q10528 - KLW
