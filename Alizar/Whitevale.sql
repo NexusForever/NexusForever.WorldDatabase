@@ -4914,6 +4914,14 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 21, 18),
     (@GUID+1, 22, 0);
 -- --------------------------------------
+-- Avra Darkos (Thermock Hold)
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 21861, @WORLD, 1650, 5450.5, -954, -497.2, 0, 0, 0, 23187, 9072, 171, 171);
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID+1, 10, 23);
+-- --------------------------------------
 -- Fresh Malfrost Blossom
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
