@@ -13102,3 +13102,9 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 20, 4.602442E+07),
     (@GUID+1, 21, 24),
     (@GUID+1, 22, 0);
+-- --------------------------------------
+-- Cordelia Bronson
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 20265, @WORLD, 2546, 4255.723, -803.0967, -2281.865, 0, 0, 0, 26281, 9481, 171, 171);
