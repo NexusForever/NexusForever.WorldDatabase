@@ -58615,3 +58615,9 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
     (@GUID+1, 10, 75365, @WORLD, 227, 3736.942, -927.304, -565.2762, 1.570798, -0.2747445, -2.012636E-07, 23952, 0, 219, 219, 7221311);
+-- --------------------------------------
+-- Exile Soldier (Thermock quest contact)
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 19756, @WORLD, 1613, 4667.15, -938.742, -725.44, 0, 0, 0, 26051, 8980, 171, 171);
