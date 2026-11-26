@@ -39019,3 +39019,25 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 20, 0),
     (@GUID+1, 21, 0),
     (@GUID+1, 22, 0);
+-- --------------------------------------
+-- Lifecaller Aethena
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 37985, @WORLD, 2074, 1948.6021, -760.8357, -4206.6284, 0, 0, 0, 25705, 9150, 963, 963);
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID+1, 10, 40);
+-- --------------------------------------
+-- Wounded Lifecaller
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 40517, @WORLD, 2075, 1037.405, -577.1758, -3989.2969, 0, 0, 0, 25705, 9150, 963, 963);
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID+1, 10, 40);
+-- --------------------------------------
+-- Explorer Underwood's Journal
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 10, 38194, @WORLD, 2071, 3254.1, -707.12, -4125.5, 0, 0, 0, 21364, 0, 171, 171);
