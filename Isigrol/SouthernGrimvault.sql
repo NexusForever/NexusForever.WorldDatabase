@@ -40776,3 +40776,21 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 20, 0),
     (@GUID+1, 21, 0),
     (@GUID+1, 22, 0);
+
+-- --------------------------------------
+-- Museum relics, curators and exhibits
+-- --------------------------------------
+SET @WORLD = 1061;
+START TRANSACTION;
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`)
+SELECT @GUID + spawn.slot, spawn.kind, spawn.creature, @WORLD, spawn.area, spawn.x, spawn.y, spawn.z,
+       0, 0, 0, spawn.display_id, spawn.outfit, spawn.faction, spawn.faction
+FROM (
+    SELECT 1 AS slot, 10 AS kind, 53851 AS creature, 1452 AS area, 732.6 AS x, -987.5 AS y, -1701.7 AS z, 28700 AS display_id, 0 AS outfit, 219 AS faction
+) AS spawn
+WHERE NOT EXISTS (
+    SELECT 1 FROM `entity` AS existing
+    WHERE existing.world = @WORLD AND existing.area = spawn.area AND existing.creature = spawn.creature
+);
+COMMIT;

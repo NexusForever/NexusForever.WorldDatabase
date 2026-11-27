@@ -19747,3 +19747,21 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
     (@GUID+1, 10, 71753, @WORLD, 4185, 4596.117, -955.3416, -4559.135, 3.072302, -0.2567871, 0.2667491, 36299, 0, 219, 219, 7063165);
+
+-- --------------------------------------
+-- Museum relics, curators and exhibits
+-- --------------------------------------
+SET @WORLD = 1061;
+START TRANSACTION;
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`)
+SELECT @GUID + spawn.slot, spawn.kind, spawn.creature, @WORLD, spawn.area, spawn.x, spawn.y, spawn.z,
+       0, 0, 0, spawn.display_id, spawn.outfit, spawn.faction, spawn.faction
+FROM (
+    SELECT 1 AS slot, 10 AS kind, 53797 AS creature, 4208 AS area, 4836.1 AS x, -970.4034 AS y, -4007.59 AS z, 28700 AS display_id, 0 AS outfit, 219 AS faction
+) AS spawn
+WHERE NOT EXISTS (
+    SELECT 1 FROM `entity` AS existing
+    WHERE existing.world = @WORLD AND existing.area = spawn.area AND existing.creature = spawn.creature
+);
+COMMIT;
