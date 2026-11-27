@@ -452,6 +452,13 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 	(@GUID + 2, 0, 73491, @WORLD, 0, 611.0665, -399.62097, 283.1857, 2.9660091, -0, 0, 25510, 8952, 171, 171);
 
 -- --------------------------------------
+-- Artemis Zin - Nexus Virtuality, Missions tutorial
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID + 1, 0, 74861, @WORLD, 0, 611.0665, -399.62097, 283.1857, 2.9660091, 0, 0, 25236, 9080, 170, 170);
+
+-- --------------------------------------
 -- Housing Hologram Projector - NPEU - Part 2 to Part 3 - KLW
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
