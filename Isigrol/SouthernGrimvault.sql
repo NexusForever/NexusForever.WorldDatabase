@@ -40776,3 +40776,10 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 20, 0),
     (@GUID+1, 21, 0),
     (@GUID+1, 22, 0);
+-- --------------------------------------
+-- Corrupt Datacube and Drusera (quest 7972)
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 10, 48079, @WORLD, 2130, 728.1578, -987.5, -1702.9435, 0, 0, 0, 32770, 0, 219, 219),
+    (@GUID+2, 0, 48124, @WORLD, 2130, 724.1578, -987.5, -1698.943, 0, 0, 0, 29337, 0, 219, 219);

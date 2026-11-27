@@ -33053,3 +33053,12 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
     (@GUID+1, 32, 75889, @WORLD, 584, -5078.22, -948.494, -1514.86, 0.9210804, 0, 0, 33012, 0, 219, 219);
 INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 0, 1840);
+-- --------------------------------------
+-- Clanlord Makaza and Emissary Autarka's Head (quest 5512)
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 24000, @WORLD, 1212, -4716.242, -910.215, -1553.193, 0, 0, 0, 26523, 9197, 170, 170),
+    (@GUID+2, 10, 23995, @WORLD, 587, -4638.683, -861, -1710.34, 0, 0, 0, 38372, 0, 170, 170);
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID+1, 10, 10);
