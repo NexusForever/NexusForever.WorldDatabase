@@ -7487,6 +7487,24 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 21, 18),
     (@GUID+1, 22, 0);
 -- --------------------------------------
+-- Starfall - Dorian Walker and firework stations
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `QuestChecklistIdx`) VALUES
+    (@GUID+1, 0, 73058, @WORLD, 4959, 4078.5818, -797.8368, -2428.8638, 2.0774030, 0, 0, 25510, 8952, 171, 171, 0),
+    (@GUID+2, 10, 74800, @WORLD, 4959, 4068.0913, -797.8368, -2422.1604, 0.0000000, 0, 0, 21396, 0, 219, 219, 0),
+    (@GUID+3, 10, 74800, @WORLD, 4959, 4076.0913, -797.8368, -2438.1604, 0.0000000, 0, 0, 21396, 0, 219, 219, 1),
+    (@GUID+4, 10, 74800, @WORLD, 4959, 4084.0913, -797.8368, -2438.1604, 0.0000000, 0, 0, 21396, 0, 219, 219, 2),
+    (@GUID+5, 10, 74800, @WORLD, 4959, 4084.0913, -797.8368, -2430.1604, 0.0000000, 0, 0, 21396, 0, 219, 219, 3),
+    (@GUID+6, 10, 74800, @WORLD, 4959, 4076.0913, -797.8368, -2422.1604, 0.0000000, 0, 0, 21396, 0, 219, 219, 4);
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID+1, 10, 50),
+    (@GUID+2, 10, 1),
+    (@GUID+3, 10, 1),
+    (@GUID+4, 10, 1),
+    (@GUID+5, 10, 1),
+    (@GUID+6, 10, 1);
+-- --------------------------------------
 -- Explorer Diary Page
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
