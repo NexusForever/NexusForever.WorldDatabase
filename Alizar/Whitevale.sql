@@ -58615,3 +58615,56 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `ActivePropId`) VALUES
     (@GUID+1, 10, 75365, @WORLD, 227, 3736.942, -927.304, -565.2762, 1.570798, -0.2747445, -2.012636E-07, 23952, 0, 219, 219, 7221311);
+
+-- --------------------------------------
+-- Crash Survivor Byrdson, and provisions for Hungry and Desperate (5120).
+-- Requires active-objective loot and the creature world-location loot condition.
+-- --------------------------------------
+START TRANSACTION;
+SET @GUID = (SELECT IFNULL(MAX(id), 0) FROM entity);
+INSERT INTO entity (id, type, creature, world, area, x, y, z, rx, ry, rz, displayInfo, outfitInfo, faction1, faction2)
+SELECT @GUID+1, 0, 22053, @WORLD, 138, 6200.243, -973.5623, -589.4025, 0, 0, 0, 25987, 9252, 219, 219
+WHERE NOT EXISTS (SELECT 1 FROM entity WHERE world=@WORLD AND area=138 AND creature=22053);
+
+INSERT INTO entity_stats (id, stat, value)
+SELECT id, 10, 23 FROM entity WHERE id=@GUID+1 AND world=@WORLD AND area=138 AND creature=22053;
+
+-- WorldLocation2 marker 33223 limits the drop to the quest's hunting area.
+-- Objective 7356 stops the virtual item dropping once the player has enough.
+SET @ExistingProvisionLoot = (
+    SELECT MIN(zone.id)
+    FROM loot_group AS zone
+    JOIN loot_group AS objective ON objective.parentId = zone.id
+    JOIN loot_item AS reward ON reward.id = objective.id
+    WHERE zone.parentId IS NULL AND zone.conditionType = 9 AND zone.`condition` = 33223
+      AND zone.probability = 100 AND zone.minCount = 1 AND zone.maxCount = 1
+      AND objective.conditionType = 8 AND objective.`condition` = 7356
+      AND objective.probability = 100 AND objective.minCount = 1 AND objective.maxCount = 1
+      AND reward.type = 6 AND reward.staticId = 61
+      AND reward.probability = 100 AND reward.minCount = 1 AND reward.maxCount = 1
+      AND NOT EXISTS (SELECT 1 FROM loot_group AS other WHERE other.parentId = zone.id AND other.id <> objective.id)
+      AND NOT EXISTS (SELECT 1 FROM loot_group AS other WHERE other.parentId = objective.id)
+      AND NOT EXISTS (SELECT 1 FROM loot_item AS extra WHERE extra.id = zone.id)
+      AND NOT EXISTS (SELECT 1 FROM loot_item AS extra WHERE extra.id = objective.id AND (extra.type <> reward.type OR extra.staticId <> reward.staticId))
+);
+SET @ProvisionLoot = COALESCE(@ExistingProvisionLoot, (SELECT IFNULL(MAX(id), 0) + 1 FROM loot_group));
+INSERT INTO loot_group (id, parentId, probability, minCount, maxCount, conditionType, `condition`, comment)
+SELECT @ProvisionLoot, NULL, 100, 1, 1, 9, 33223, 'Hungry and Desperate hunting area'
+WHERE @ExistingProvisionLoot IS NULL;
+
+INSERT INTO loot_group (id, parentId, probability, minCount, maxCount, conditionType, `condition`, comment)
+SELECT @ProvisionLoot+1, @ProvisionLoot, 100, 1, 1, 8, 7356, 'Hungry and Desperate active provisions objective'
+WHERE @ExistingProvisionLoot IS NULL;
+
+INSERT INTO loot_item (id, type, staticId, probability, minCount, maxCount, comment)
+SELECT @ProvisionLoot+1, 6, 61, 100, 1, 1, 'Whitevale provisions'
+WHERE @ExistingProvisionLoot IS NULL;
+
+INSERT INTO entity_loot (id, lootGroupId, comment)
+SELECT source.creature, @ProvisionLoot, 'Hungry and Desperate quest loot'
+FROM (SELECT 19889 AS creature UNION ALL SELECT 20994) AS source
+WHERE NOT EXISTS (
+    SELECT 1 FROM entity_loot AS existing
+    WHERE existing.id = source.creature AND existing.lootGroupId = @ProvisionLoot
+);
+COMMIT;
