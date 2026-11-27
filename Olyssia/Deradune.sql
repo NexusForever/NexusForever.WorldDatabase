@@ -33053,3 +33053,16 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
     (@GUID+1, 32, 75889, @WORLD, 584, -5078.22, -948.494, -1514.86, 0.9210804, 0, 0, 33012, 0, 219, 219);
 INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 0, 1840);
+
+-- --------------------------------------
+-- Researcher Zamm (quest 5688)
+-- --------------------------------------
+START TRANSACTION;
+SET @GUID = (SELECT IFNULL(MAX(id), 0) FROM entity);
+INSERT INTO entity (id, type, creature, world, area, x, y, z, rx, ry, rz, displayInfo, outfitInfo, faction1, faction2)
+SELECT @GUID+1, 0, 24786, @WORLD, 586, -4396.790, -931.493, -1020.030, 0, 0, 0, 25938, 9058, 170, 170
+WHERE NOT EXISTS (SELECT 1 FROM entity WHERE world=@WORLD AND area=586 AND creature=24786);
+
+INSERT INTO entity_stats (id, stat, value)
+SELECT id, 10, 9 FROM entity WHERE id=@GUID+1 AND world=@WORLD AND area=586 AND creature=24786;
+COMMIT;
