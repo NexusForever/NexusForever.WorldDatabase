@@ -9250,3 +9250,18 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
     (@GUID+1, 10, 75991, @WORLD, 2193, -3414.32, -890.59, -683.229, -3.141593, 0, 0, 40142, 0, 219, 219);
+-- --------------------------------------
+-- Acolyte Vesperus
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 65406, @WORLD, 2196, -3472.1223, -884.9645, -1011.42303, 1.92269184, 0, 0, 36345, 9014, 170, 170);
+-- --------------------------------------
+-- Shade's Eve memorials
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 65411, @WORLD, 2192, -2962.3484, -905.02057, -1333.3976, 3.071646, 0, 0, 36322, 0, 219, 219),
+    (@GUID+2, 0, 65412, @WORLD, 2192, -3123.3923, -895.96484, -987.3353, 0, 0, 0, 36494, 0, 219, 219),
+    (@GUID+3, 0, 65413, @WORLD, 2192, -3315.8293, -896.21484, -1103.4165, 0.701856, 0, 0, 36486, 0, 219, 219),
+    (@GUID+4, 0, 65415, @WORLD, 2192, -3193.6145, -891.79474, -1243.2717, 0.30266896, 0, 0, 36202, 0, 219, 219);
