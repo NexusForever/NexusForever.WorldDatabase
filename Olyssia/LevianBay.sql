@@ -9268,3 +9268,22 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 20, 0),
     (@GUID+1, 21, 0),
     (@GUID+1, 22, 0);
+
+-- --------------------------------------
+-- Dominion arrival quest contacts
+-- --------------------------------------
+START TRANSACTION;
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`)
+SELECT @GUID + spawn.slot, 0, spawn.creature, @WORLD, spawn.area, spawn.x, spawn.y, spawn.z,
+       0, 0, 0, spawn.display_id, spawn.outfit, 170, 170
+FROM (
+    SELECT 1 AS slot, 53655 AS creature, 1411 AS area, -3833.920 AS x, -980.080 AS y, -6051.404 AS z, 30261 AS display_id, 9527 AS outfit
+    UNION ALL SELECT 2, 53716, 1411, -3829.920, -980.080, -6051.404, 30264, 9005
+    UNION ALL SELECT 3, 53726, 1411, -3837.920, -980.080, -6051.404, 30265, 9005
+) AS spawn
+WHERE NOT EXISTS (
+    SELECT 1 FROM `entity` AS existing
+    WHERE existing.world = @WORLD AND existing.area = spawn.area AND existing.creature = spawn.creature
+);
+COMMIT;
