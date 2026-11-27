@@ -853,7 +853,18 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 -- --------------------------------------
 -- NPEU - Part 4 - Questing - Eldan Defense Construct - Bot Boss - JBN/KLW
 -- --------------------------------------
--- (@GUID + 1, 0, 73499, 3460, 0, 429.29544, -388.88257, 253.77565, -1.6755165, 0, 0, 24399, 0, 219, 219);
+-- The simulation uses faction 218 so either player faction can fight the Construct.
+START TRANSACTION;
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`) + 1;
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`)
+SELECT @GUID, 0, 73499, @WORLD, 0, 429.29544, -388.88257, 253.77565, -1.6755165, 0, 0, 24399, 0, 218, 218
+WHERE NOT EXISTS (
+    SELECT 1 FROM `entity` WHERE `World` = @WORLD AND `Creature` = 73499
+);
+SET @INSERTED_CONSTRUCT = ROW_COUNT();
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`)
+SELECT @GUID, 10, 3 WHERE @INSERTED_CONSTRUCT = 1;
+COMMIT;
 
 -- --------------------------------------
 -- (NPE Boss) Protector Bot - Plasma Sweep
