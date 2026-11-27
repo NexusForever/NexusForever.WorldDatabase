@@ -9055,6 +9055,24 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 0, 101);
 -- --------------------------------------
+-- Starfall - Emperor Myrcalus and firework stations
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `QuestChecklistIdx`) VALUES
+    (@GUID+1, 0, 73057, @WORLD, 4957, -3359.4100, -887.4646, -521.4490, -0.7853982, 0, 0, 24316, 0, 170, 170, 0),
+    (@GUID+2, 10, 73279, @WORLD, 4957, -3367.7300, -887.4646, -529.2470, 0.0000000, 0, 0, 21396, 0, 219, 219, 0),
+    (@GUID+3, 10, 73279, @WORLD, 4957, -3359.7300, -887.4646, -537.2470, 0.0000000, 0, 0, 21396, 0, 219, 219, 1),
+    (@GUID+4, 10, 73279, @WORLD, 4957, -3351.7300, -887.4646, -529.2470, 0.0000000, 0, 0, 21396, 0, 219, 219, 2),
+    (@GUID+5, 10, 73279, @WORLD, 4957, -3367.7300, -887.4646, -513.2470, 0.0000000, 0, 0, 21396, 0, 219, 219, 3),
+    (@GUID+6, 10, 73279, @WORLD, 4957, -3351.7300, -887.4646, -513.2470, 0.0000000, 0, 0, 21396, 0, 219, 219, 4);
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID+1, 10, 50),
+    (@GUID+2, 10, 1),
+    (@GUID+3, 10, 1),
+    (@GUID+4, 10, 1),
+    (@GUID+5, 10, 1),
+    (@GUID+6, 10, 1);
+-- --------------------------------------
 -- GC300 - Illium - Myrcalus Hologram - Emperor Myrcalus
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
