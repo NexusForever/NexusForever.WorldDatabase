@@ -1258,3 +1258,21 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
 	(@GUID + 1, 0, 75051, @WORLD, 0, -4320.48, -446.91846, -4036.385, -0.60349476, -0, 0, 24645, 8587, 171, 171);
+
+-- --------------------------------------
+-- Historical Exile departure and Eldan briefing contacts
+-- --------------------------------------
+SET @WORLD = 3460;
+START TRANSACTION;
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`)
+SELECT @GUID + spawn.slot, spawn.kind, spawn.creature, @WORLD, spawn.area, spawn.x, spawn.y, spawn.z,
+       0, 0, 0, spawn.display_id, spawn.outfit, spawn.faction, spawn.faction
+FROM (
+    SELECT 1 AS slot, 0 AS kind, 46505 AS creature, 6018 AS area, -4149.8 AS x, -449.5546 AS y, -4190.1 AS z, 23187 AS display_id, 9072 AS outfit, 171 AS faction
+) AS spawn
+WHERE NOT EXISTS (
+    SELECT 1 FROM `entity` AS existing
+    WHERE existing.world = @WORLD AND existing.area = spawn.area AND existing.creature = spawn.creature
+);
+COMMIT;
