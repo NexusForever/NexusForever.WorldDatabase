@@ -9250,3 +9250,30 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
     (@GUID+1, 10, 75991, @WORLD, 2193, -3414.32, -890.59, -683.229, -3.141593, 0, 0, 40142, 0, 219, 219);
+
+-- --------------------------------------
+-- Museum relics, curators and exhibits
+-- --------------------------------------
+SET @WORLD = 22;
+START TRANSACTION;
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`)
+SELECT @GUID + spawn.slot, spawn.kind, spawn.creature, @WORLD, spawn.area, spawn.x, spawn.y, spawn.z,
+       0, 0, 0, spawn.display_id, spawn.outfit, spawn.faction, spawn.faction
+FROM (
+    SELECT 1 AS slot, 0 AS kind, 53616 AS creature, 4380 AS area, -3381.2 AS x, -1032.3059 AS y, -1699.2 AS z, 25236 AS display_id, 9080 AS outfit, 170 AS faction
+    UNION ALL SELECT 2, 10, 62465, 4380, -3381.194, -1031.0392, -1721.9211, 27415, 0, 170
+    UNION ALL SELECT 3, 10, 53610, 4380, -3372.1543, -1032.306, -1673.113, 21375, 0, 219
+    UNION ALL SELECT 4, 10, 53703, 4380, -3390.0334, -1032.3059, -1673.2283, 21375, 0, 219
+    UNION ALL SELECT 5, 10, 53803, 4380, -3389.7278, -1033.4235, -1663.0211, 28700, 0, 219
+    UNION ALL SELECT 6, 10, 53813, 4380, -3372.123, -1032.3059, -1698.3798, 21375, 0, 219
+    UNION ALL SELECT 7, 10, 53836, 4380, -3390.102, -1032.3059, -1698.5394, 21375, 0, 219
+    UNION ALL SELECT 8, 10, 53834, 4380, -3372.087, -1032.306, -1685.6986, 21375, 0, 219
+    UNION ALL SELECT 9, 10, 53837, 4380, -3389.938, -1032.3059, -1685.8086, 21375, 0, 219
+    UNION ALL SELECT 10, 10, 53856, 4380, -3381.1558, -1032.018, -1653.2969, 21375, 0, 219
+) AS spawn
+WHERE NOT EXISTS (
+    SELECT 1 FROM `entity` AS existing
+    WHERE existing.world = @WORLD AND existing.area = spawn.area AND existing.creature = spawn.creature
+);
+COMMIT;
