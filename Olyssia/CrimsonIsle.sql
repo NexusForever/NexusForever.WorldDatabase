@@ -4914,6 +4914,47 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
     (@GUID+3, 11, 24412, @WORLD, 1218, -7098.123, -995.2942, -875.7746, 0, 0, 0, 22560, 0, 219, 219),
     (@GUID+4, 11, 24412, @WORLD, 1325, -7148.51, -995.4865, -993.068, -3.141593, 0, 0, 22560, 0, 219, 219);
 -- --------------------------------------
+-- Corporal Deraakh
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 24982, @WORLD, 1218, -7341, -995.5, -632, 0.44, 0, 0, 26073, 9004, 170, 170);
+
+-- Search and Seizure (5713): weapons from the native Scarhide Dreg templates.
+START TRANSACTION;
+SET @ScarhideLootGroup = (
+    SELECT MIN(g.id)
+    FROM `loot_group` AS g
+    JOIN `loot_item` AS i ON i.id = g.id
+    WHERE g.parentId IS NULL AND g.conditionType = 8 AND g.`condition` = 8602
+      AND g.probability = 100 AND g.minCount = 1 AND g.maxCount = 1
+      AND i.type = 6 AND i.staticId = 397 AND i.probability = 100 AND i.minCount = 1 AND i.maxCount = 1
+      AND NOT EXISTS (SELECT 1 FROM `loot_group` AS child WHERE child.parentId = g.id)
+      AND NOT EXISTS (SELECT 1 FROM `loot_item` AS extra WHERE extra.id = g.id AND (extra.type <> 6 OR extra.staticId <> 397))
+);
+SET @ScarhideLootIsNew = (@ScarhideLootGroup IS NULL);
+SET @ScarhideLootGroup = COALESCE(@ScarhideLootGroup, (SELECT IFNULL(MAX(`id`), 0) + 1 FROM `loot_group`));
+
+INSERT INTO `loot_group` (`id`, `parentId`, `probability`, `minCount`, `maxCount`, `conditionType`, `condition`, `comment`)
+SELECT @ScarhideLootGroup, NULL, 100, 1, 1, 8, 8602, 'Search and Seizure quest objective'
+WHERE @ScarhideLootIsNew;
+INSERT INTO `loot_item` (`id`, `type`, `staticId`, `probability`, `minCount`, `maxCount`, `comment`)
+SELECT @ScarhideLootGroup, 6, 397, 100, 1, 1, 'Search and Seizure Scarhide weapon'
+WHERE @ScarhideLootIsNew;
+INSERT INTO `entity_loot` (`id`, `lootGroupId`, `comment`)
+SELECT source.creature, @ScarhideLootGroup, 'Search and Seizure quest loot'
+FROM (SELECT 24140 AS creature UNION ALL SELECT 24141 UNION ALL SELECT 24216) AS source
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM `entity_loot` AS prior
+    JOIN `loot_group` AS g ON g.id = prior.lootGroupId
+    JOIN `loot_item` AS i ON i.id = g.id
+    WHERE prior.id = source.creature AND g.conditionType = 8 AND g.`condition` = 8602
+      AND i.type = 6 AND i.staticId = 397
+);
+COMMIT;
+
+-- --------------------------------------
 -- Scarhide Chief
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
