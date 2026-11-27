@@ -31830,3 +31830,30 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
     (@GUID+1, 32, 75889, @WORLD, 327, -2522.53, -788.6925, -3553.49, 0.4696012, 0, 0, 33012, 0, 219, 219);
 INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 0, 1840);
+
+-- The Leviathan (6642) starts from the Leviathan's Head, item 17380.
+-- The matching creature placement is maintained with the Ellevar bounty.
+START TRANSACTION;
+SET @ExistingLeviathanHeadLoot = (
+    SELECT MIN(g.id)
+    FROM loot_group AS g
+    JOIN loot_item AS i ON i.id = g.id
+    WHERE g.parentId IS NULL AND g.conditionType = 10 AND g.`condition` = 17380
+      AND g.probability = 100 AND g.minCount = 1 AND g.maxCount = 1
+      AND i.type = 0 AND i.staticId = 17380 AND i.probability = 100 AND i.minCount = 1 AND i.maxCount = 1
+      AND NOT EXISTS (SELECT 1 FROM loot_group other WHERE other.parentId = g.id)
+      AND NOT EXISTS (SELECT 1 FROM loot_item extra WHERE extra.id = g.id AND (extra.type <> i.type OR extra.staticId <> i.staticId))
+);
+SET @LeviathanHeadLoot = COALESCE(@ExistingLeviathanHeadLoot, (SELECT IFNULL(MAX(id), 0) + 1 FROM loot_group));
+INSERT INTO loot_group (id, parentId, probability, minCount, maxCount, conditionType, `condition`, comment)
+SELECT @LeviathanHeadLoot, NULL, 100, 1, 1, 10, 17380, 'The Leviathan eligible quest starter'
+WHERE @ExistingLeviathanHeadLoot IS NULL;
+
+INSERT INTO loot_item (id, type, staticId, probability, minCount, maxCount, comment)
+SELECT @LeviathanHeadLoot, 0, 17380, 100, 1, 1, 'Leviathan head'
+WHERE @ExistingLeviathanHeadLoot IS NULL;
+
+INSERT INTO entity_loot (id, lootGroupId, comment)
+SELECT 30999, @LeviathanHeadLoot, 'The Leviathan quest drop'
+WHERE NOT EXISTS (SELECT 1 FROM entity_loot WHERE id = 30999 AND lootGroupId = @LeviathanHeadLoot);
+COMMIT;
