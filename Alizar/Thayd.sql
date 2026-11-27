@@ -407,6 +407,26 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+4, 21, 0),
     (@GUID+4, 22, 0);
 -- --------------------------------------
+-- Winterfest - Consumerism Converts
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `QuestChecklistIdx`) VALUES
+    (@GUID+1, 0, 72264, @WORLD, 4408, 3710, -837, -1636, 0, 0, 0, 21577, 0, 255, 255, 0),
+    (@GUID+2, 0, 72257, @WORLD, 2545, 3634, -831.5, -1896, 0, 0, 0, 26215, 8377, 171, 171, 0),
+    (@GUID+3, 0, 72257, @WORLD, 2545, 3636, -829.5, -1886, 0, 0, 0, 26215, 8377, 171, 171, 1),
+    (@GUID+4, 0, 72257, @WORLD, 2545, 3644, -831.5, -1894, 0, 0, 0, 26215, 8377, 171, 171, 2),
+    (@GUID+5, 0, 72257, @WORLD, 2545, 3640, -834, -1904, 0, 0, 0, 26215, 8377, 171, 171, 3),
+    (@GUID+6, 0, 72257, @WORLD, 2545, 3624, -830.5, -1896, 0, 0, 0, 26215, 8377, 171, 171, 4),
+    (@GUID+7, 0, 72257, @WORLD, 2545, 3646, -829.5, -1884, 0, 0, 0, 26215, 8377, 171, 171, 5);
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID+1, 10, 15),
+    (@GUID+2, 10, 15),
+    (@GUID+3, 10, 15),
+    (@GUID+4, 10, 15),
+    (@GUID+5, 10, 15),
+    (@GUID+6, 10, 15),
+    (@GUID+7, 10, 15);
+-- --------------------------------------
 -- Merchant Borox
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
