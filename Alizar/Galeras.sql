@@ -39432,3 +39432,70 @@ INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
     (@GUID+1, 20, 0),
     (@GUID+1, 21, 0),
     (@GUID+1, 22, 0);
+-- --------------------------------------
+-- Razorbeak Gribbon (Crosswind Post)
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID+1, 0, 19381, @WORLD, 989, 5919, -875, -2184, 0, 0, 0, 21584, 0, 218, 218),
+    (@GUID+2, 0, 19381, @WORLD, 989, 5930, -877.5, -2180, 0, 0, 0, 21584, 0, 218, 218),
+    (@GUID+3, 0, 19381, @WORLD, 989, 5926, -878.5, -2166, 0, 0, 0, 21584, 0, 218, 218),
+    (@GUID+4, 0, 19381, @WORLD, 989, 5916, -876.75, -2169, 0, 0, 0, 21584, 0, 218, 218);
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID+1, 10, 20), (@GUID+2, 10, 20), (@GUID+3, 10, 20), (@GUID+4, 10, 20);
+
+-- Summoning the Ravager (4731): each virtual item is available only while its objective is active.
+START TRANSACTION;
+CREATE TEMPORARY TABLE `galeras_ritual_offerings` (
+    `slot` TINYINT UNSIGNED PRIMARY KEY,
+    `objective` INT UNSIGNED NOT NULL,
+    `item` INT UNSIGNED NOT NULL,
+    `lootGroupId` BIGINT UNSIGNED
+);
+INSERT INTO `galeras_ritual_offerings` (`slot`, `objective`, `item`) VALUES
+    (1, 6531, 343), (2, 6532, 344), (3, 6533, 345);
+
+-- Reuse a matching group on reimport, excluding compound groups with additional rewards.
+UPDATE `galeras_ritual_offerings` AS offering SET `lootGroupId` = (
+    SELECT MIN(g.id)
+    FROM `loot_group` AS g
+    JOIN `loot_item` AS i ON i.id = g.id
+    WHERE g.parentId IS NULL AND g.conditionType = 8 AND g.`condition` = offering.objective
+      AND g.probability = 100 AND g.minCount = 1 AND g.maxCount = 1
+      AND i.type = 6 AND i.staticId = offering.item
+      AND i.probability = 100 AND i.minCount = 1 AND i.maxCount = 1
+      AND NOT EXISTS (SELECT 1 FROM `loot_group` AS child WHERE child.parentId = g.id)
+      AND NOT EXISTS (SELECT 1 FROM `loot_item` AS extra WHERE extra.id = g.id AND (extra.type <> i.type OR extra.staticId <> i.staticId))
+);
+SET @LootGUID = (SELECT IFNULL(MAX(`id`), 0) FROM `loot_group`);
+UPDATE `galeras_ritual_offerings` SET `lootGroupId` = @LootGUID + `slot` WHERE `lootGroupId` IS NULL;
+
+INSERT INTO `loot_group` (`id`, `parentId`, `probability`, `minCount`, `maxCount`, `conditionType`, `condition`, `comment`)
+SELECT offering.lootGroupId, NULL, 100, 1, 1, 8, offering.objective, 'Summoning the Ravager quest objective'
+FROM `galeras_ritual_offerings` AS offering WHERE offering.lootGroupId > @LootGUID;
+
+INSERT INTO `loot_item` (`id`, `type`, `staticId`, `probability`, `minCount`, `maxCount`, `comment`)
+SELECT offering.lootGroupId, 6, offering.item, 100, 1, 1, 'Summoning the Ravager ritual offering'
+FROM `galeras_ritual_offerings` AS offering WHERE offering.lootGroupId > @LootGUID;
+
+INSERT INTO `entity_loot` (`id`, `lootGroupId`, `comment`)
+SELECT source.creature, offering.lootGroupId, 'Summoning the Ravager quest loot'
+FROM `galeras_ritual_offerings` AS offering
+JOIN (
+    SELECT 1 AS slot, 17336 AS creature
+    UNION ALL SELECT 2, 19381
+    UNION ALL SELECT 3, 17086
+    UNION ALL SELECT 3, 17087
+    UNION ALL SELECT 3, 17088
+    UNION ALL SELECT 3, 17089
+) AS source ON source.slot = offering.slot
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM `entity_loot` AS prior
+    JOIN `loot_group` AS g ON g.id = prior.lootGroupId
+    JOIN `loot_item` AS i ON i.id = g.id
+    WHERE prior.id = source.creature AND g.conditionType = 8 AND g.`condition` = offering.objective
+      AND i.type = 6 AND i.staticId = offering.item
+);
+DROP TEMPORARY TABLE `galeras_ritual_offerings`;
+COMMIT;
