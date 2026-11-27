@@ -1258,3 +1258,19 @@ INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, 
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
 	(@GUID + 1, 0, 75051, @WORLD, 0, -4320.48, -446.91846, -4036.385, -0.60349476, -0, 0, 24645, 8587, 171, 171);
+
+-- --------------------------------------
+-- Dominion dock briefing contacts (quest 10530)
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID + 1, 0, 74863, @WORLD, 0, -3669.182, -437.97604, -4352.727, 1.1596371, 0, 0, 25236, 9080, 170, 170),
+    (@GUID + 2, 10, 74778, @WORLD, 0, -3638.41, -437.85535, -4357.473, 1.8430549, 0, 0, 34802, 9057, 170, 170);
+
+-- --------------------------------------
+-- Dominion departures terminals: Crimson Isle and Levian Bay
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
+    (@GUID + 1, 32, 74772, @WORLD, 0, -3567.1978, -436.9302, -4312.825, 1.6149532, 0, 0, 26276, 0, 219, 219),
+    (@GUID + 2, 32, 74773, @WORLD, 0, -3570.5374, -436.93027, -4316.3125, 2.3843987, 0, 0, 26276, 0, 219, 219);
