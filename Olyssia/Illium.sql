@@ -4291,6 +4291,26 @@ SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
 INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`) VALUES
     (@GUID+1, 8, 41043, @WORLD, 2192, -2926.572, -903.6796, -937.3688, -3.141593, 0, 0, 21652, 0, 219, 219);
 -- --------------------------------------
+-- Winterfest - Consumerism Converts
+-- --------------------------------------
+SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
+INSERT INTO `entity` (`Id`, `Type`, `Creature`, `World`, `Area`, `X`, `Y`, `Z`, `RX`, `RY`, `RZ`, `DisplayInfo`, `OutfitInfo`, `Faction1`, `Faction2`, `QuestChecklistIdx`) VALUES
+    (@GUID+1, 0, 72263, @WORLD, 2196, -3498, -885, -974, 0, 0, 0, 21577, 0, 255, 255, 0),
+    (@GUID+2, 0, 72248, @WORLD, 2192, -3132, -892, -1162, 0, 0, 0, 26094, 9568, 170, 170, 0),
+    (@GUID+3, 0, 72248, @WORLD, 2192, -3132, -892, -1172, 0, 0, 0, 26094, 9568, 170, 170, 1),
+    (@GUID+4, 0, 72248, @WORLD, 2192, -3142, -892, -1162, 0, 0, 0, 26094, 9568, 170, 170, 2),
+    (@GUID+5, 0, 72248, @WORLD, 2192, -3122, -892, -1162, 0, 0, 0, 26094, 9568, 170, 170, 3),
+    (@GUID+6, 0, 72248, @WORLD, 2192, -3132, -892, -1152, 0, 0, 0, 26094, 9568, 170, 170, 4),
+    (@GUID+7, 0, 72248, @WORLD, 2192, -3142, -892, -1172, 0, 0, 0, 26094, 9568, 170, 170, 5);
+INSERT INTO `entity_stats` (`Id`, `Stat`, `Value`) VALUES
+    (@GUID+1, 10, 15),
+    (@GUID+2, 10, 15),
+    (@GUID+3, 10, 15),
+    (@GUID+4, 10, 15),
+    (@GUID+5, 10, 15),
+    (@GUID+6, 10, 15),
+    (@GUID+7, 10, 15);
+-- --------------------------------------
 -- Illium Market - Settler Depot
 -- --------------------------------------
 SET @GUID = (SELECT IFNULL(MAX(`id`), 0) FROM `entity`);
